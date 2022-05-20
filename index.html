@@ -154,8 +154,9 @@
                             <div class="col-2">
                                 <label for="buttons" class="form-label">Section</label>
                             </div>
-                            <div class="col-auto row btn-group" role="group" aria-label="Basic example" data-toggle="buttons">
-                                <button  type="checkbox" class="btn btn-success active" checked>Non-Smoking</button>
+                            <div class="col-auto row btn-group" role="group" aria-label="Basic example"
+                                data-toggle="buttons">
+                                <button type="checkbox" class="btn btn-success active" checked>Non-Smoking</button>
                                 <button type="checkbox" class="btn btn-danger">Smoking</button>
                             </div>
                         </div>
@@ -258,14 +259,9 @@
                     <a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
-                    <div class="btn-group" id="carouselButtons" style="z-index: 1">
-                        <button class="btn btn-danger btn-small" id="carousel-pause">
-                            <span class="fa fa-pause"></span>
-                        </button>
-                        <button class="btn btn-danger btn-small" id="carousel-play">
-                            <span class="fa fa-play"></span>
-                        </button>
-                    </div>
+                    <button class="btn btn-danger btn-sm" id="carouselButton">
+                        <span class="fa fa-pause"></span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -386,15 +382,22 @@
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#mycarousel').carousel({interval:2000})
+        $(document).ready(() => {
+            $('#mycarousel').carousel({ interval: 5000 })
 
-            $('#carousel-pause').click(function() {
-                $('#mycarousel').carousel('pause');
-            })
+            $('#carouselButton').click(() => {
+                if ($('#carouselButton').children('span').hasClass('fa-pause')){
+                    $('#mycarousel').carousel('pause');
 
-            $('#carousel-play').click(function() {
-                $('#mycarousel').carousel('cycle');
+                    $('#carouselButton').children('span').removeClass('fa-pause');
+                    $('#carouselButton').children('span').addClass('fa-play');
+                }   else {
+                    $('#mycarousel').carousel('cycle');
+
+                    $('#carouselButton').children('span').removeClass('fa-play');
+                    $('#carouselButton').children('span').addClass('fa-pause');
+                }
+                
             })
         })
     </script>
