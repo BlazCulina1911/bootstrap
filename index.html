@@ -39,7 +39,11 @@
                     </li>
                 </ul>
                 <span class="navbar-text">
-                    <a data-toggle="modal" data-target="#loginModal"><span class="fa fa-sign-in"></span> Login</a>
+                    <a id="loginButton">
+                        <span class="fa fa-sign-in">
+
+                        </span> Login
+                    </a>
                 </span>
             </div>
         </div>
@@ -50,7 +54,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="closeModal">
                         &times;
                     </button>
                 </div>
@@ -77,7 +81,7 @@
                         </div>
                         <div class="form-row">
                             <button type="button" class="btn btn-secondary btn-sm ml-auto"
-                                data-dismiss="modal">Cancel</button>
+                                id="cancelLModal">Cancel</button>
                             <button type="submit" class="btn btn-primary btn-sm ml-1">Sign in</button>
                         </div>
                     </form>
@@ -93,7 +97,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title">Reserve a Table</h4>
-                    <button type="button" class="close" data-dismiss="modal">
+                    <button type="button" class="close" id="closeRModal">
                         &times;
                     </button>
                 </div>
@@ -114,36 +118,36 @@
                                     </span>
                                     <span>
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label mr-1" for="flexRadioDefault1">
+                                            id="flexRadioDefault2">
+                                        <label class="form-check-label mr-1" for="flexRadioDefault2">
                                             2
                                         </label>
                                     </span>
                                     <span>
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label mr-1" for="flexRadioDefault1">
+                                            id="flexRadioDefault3">
+                                        <label class="form-check-label mr-1" for="flexRadioDefault3">
                                             3
                                         </label>
                                     </span>
                                     <span>
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label mr-1" for="flexRadioDefault1">
+                                            id="flexRadioDefault4">
+                                        <label class="form-check-label mr-1" for="flexRadioDefault4">
                                             4
                                         </label>
                                     </span>
                                     <span>
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label mr-1" for="flexRadioDefault1">
+                                            id="flexRadioDefault5">
+                                        <label class="form-check-label mr-1" for="flexRadioDefault5">
                                             5
                                         </label>
                                     </span>
                                     <span>
                                         <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1">
-                                        <label class="form-check-label mr-4" for="flexRadioDefault1">
+                                            id="flexRadioDefault6">
+                                        <label class="form-check-label mr-4" for="flexRadioDefault6">
                                             6
                                         </label>
                                     </span>
@@ -156,7 +160,7 @@
                             </div>
                             <div class="col-auto row btn-group" role="group" aria-label="Basic example"
                                 data-toggle="buttons">
-                                <button type="checkbox" class="btn btn-success active" checked>Non-Smoking</button>
+                                <button type="checkbox" class="btn btn-success active">Non-Smoking</button>
                                 <button type="checkbox" class="btn btn-danger">Smoking</button>
                             </div>
                         </div>
@@ -170,8 +174,8 @@
                             </div>
                         </div>
                         <div class="offset-2">
-                            <button class="btn btn-secondary" type="submit" data-dismiss="modal">Cancel</button>
-                            <button class="btn btn-primary" type="submit" data-dismiss="modal">Reserve</button>
+                            <button class="btn btn-secondary" type="button" id="cancelRModal">Cancel</button>
+                            <button class="btn btn-primary" type="submit" id="reserveRModal">Reserve</button>
                         </div>
                     </form>
                 </div>
@@ -386,19 +390,46 @@
             $('#mycarousel').carousel({ interval: 5000 })
 
             $('#carouselButton').click(() => {
-                if ($('#carouselButton').children('span').hasClass('fa-pause')){
+                if ($('#carouselButton').children('span').hasClass('fa-pause')) {
                     $('#mycarousel').carousel('pause');
 
                     $('#carouselButton').children('span').removeClass('fa-pause');
                     $('#carouselButton').children('span').addClass('fa-play');
-                }   else {
+                } else {
                     $('#mycarousel').carousel('cycle');
 
                     $('#carouselButton').children('span').removeClass('fa-play');
                     $('#carouselButton').children('span').addClass('fa-pause');
                 }
-                
+
             })
+            $('#loginButton').click(() => {
+                $('#loginModal').modal();
+            })
+            $('#closeModal').click(() => {
+                $('#loginModal').modal('toggle');
+            })
+            $('#closeLModal').click(() => {
+                $('#loginModal').modal();
+            })
+            $('#cancelLModal').click(() => {
+                $('#loginModal').modal('toggle');
+            })
+
+            $('#reservationButton').click(() => {
+                $('#reservationModal').modal();
+            })
+            $('#reserveRModal').click(() => {
+                $('#reservationModal').modal('toggle');
+                console.log("This doesn't do anything! :(");
+            })
+            $('#closeRModal').click(() => {
+                $('#reservationModal').modal('toggle');
+            })
+            $('#cancelRModal').click(() => {
+                $('#reservationModal').modal('toggle');
+            })
+            
         })
     </script>
 </body>
