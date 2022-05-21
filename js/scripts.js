@@ -1,7 +1,7 @@
-$(document).ready(() => {
+$(document).ready(function() {
     $('#mycarousel').carousel({ interval: 5000 })
 
-    $('#carouselButton').click(() => {
+    $('#carouselButton').click(function() {
         if ($('#carouselButton').children('span').hasClass('fa-pause')) {
             $('#mycarousel').carousel('pause');
 
@@ -15,31 +15,30 @@ $(document).ready(() => {
         }
 
     })
-    $('#loginButton').click(() => {
+    $('#loginButton').click(function() {
         $('#loginModal').modal();
     })
-    $('#closeModal').click(() => {
+    $('#closeModal').click(function() {
         $('#loginModal').modal('toggle');
     })
-    $('#closeLModal').click(() => {
+    $('#closeLModal').click(function() {
         $('#loginModal').modal();
     })
-    $('#cancelLModal').click(() => {
+    $('#cancelLModal').click(function() {
         $('#loginModal').modal('toggle');
     })
 
-    $('#reservationButton').click(() => {
+    $('#reservationButton').click(function() {
         $('#reservationModal').modal();
     })
-    $('#reserveRModal').click(() => {
+    $('#reserveRModal').click(function() {
         $('#reservationModal').modal('toggle');
         console.log("This doesn't do anything! :(");
     })
-    $('#closeRModal').click(() => {
+    $('#closeRModal').click(function() {
         $('#reservationModal').modal('toggle');
     })
-    $('#cancelRModal').click(() => {
+    $('#cancelRModal').click(function() {
         $('#reservationModal').modal('toggle');
     })
-
 })
